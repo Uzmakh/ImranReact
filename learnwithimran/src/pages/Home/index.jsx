@@ -5,21 +5,23 @@ const HomePage = (props) => {
   const [count, setCount] = useState(0);
 
   //* putting condition on increment
-  const increment = () => {
+  const increment = useCallback(() => {
     if (count < 10) {
       setCount(count + 1)
     } else {
       alert("Count is greater than 10: Limit is reached.")
     }
-  };
+  }, [count]);
+  
   //* putting condition on decrement
-  const decrement = () => {
-    if (count >0) {
-      setCount(count -1)
+  const decrement = useCallback(() => {
+    if (count > 0) {
+      setCount(count - 1)
     } else {
       alert("Count is equal to '0': Limit is reached.Number can't be negative")
     }
-  };
+    },[count]); 
+  
   return (
     <div>
       <h1>I am a Home page</h1>
