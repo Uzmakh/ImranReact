@@ -1,7 +1,8 @@
 import { useState } from "react";
 import HomePage from "./pages/Home";
 import Signup from "./pages/Signup";
-import UseEffectScenario from "./components/useEffect";
+import UseEffectScenario from "./components/UseEffect";
+import UseMemo from "./components/useMemo";
 
 const App = () => {
   const [page, setPage] = useState();
@@ -16,6 +17,7 @@ const App = () => {
     </div>
 
       <UseEffectScenario />
+      <UseMemo />
     </>
   );
 };
