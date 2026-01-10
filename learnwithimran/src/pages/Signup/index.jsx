@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "./index.css";
+import Navbar from "../../components/Navbar";
+import { ThemeContext } from "../../context";
 
 const Signup = () => {
   const [user, setUser] = useState({
@@ -12,9 +14,11 @@ const Signup = () => {
     loading: false,
   });
 
+  const theme = useContext(ThemeContext);
+
   const handleChange = (e) => {
     console.log(user);
-    setUser({...user, [e.target.name]: e.target.value });
+    setUser({ ...user, [e.target.name]: e.target.value });
   };
 
   const checkValidation = () => {
@@ -29,7 +33,7 @@ const Signup = () => {
     } else if (user.password !== user.confirmPassword) {
       setUser({ ...user, error: "Password and Confirm Password don't match!" });
     } else {
-      setUser({...user, error: "" });
+      setUser({ ...user, error: "" });
     }
   };
 
@@ -41,13 +45,14 @@ const Signup = () => {
   };
 
   const handleSubmit = () => {
-    setUser({...user, loading: true });
+    setUser({ ...user, loading: true });
     setTimeout(() => {
-      setUser({...user, loading: false, success: "Signup successful" });
+      setUser({ ...user, loading: false, success: "Signup successful" });
     }, 5000);
   };
   return (
     <>
+      <Navbar theme={theme} />
       <div className="signup-container">
         <h2>Signup</h2>
         <input
