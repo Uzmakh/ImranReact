@@ -3,21 +3,38 @@ import HomePage from "./pages/Home";
 import Signup from "./pages/Signup";
 import UseEffectScenario from "./components/UseEffect";
 import UseMemo from "./components/useMemo";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+import { ThemeContext } from "./context";
 
 const App = () => {
-  const [page, setPage] = useState();
+  // const [page, setPage] = useState();
+
+  const [theme, setTheme] = useState("light");
   return (
     <>
-    <div>
-      <button onClick={() => setPage("home")}>Home</button>
-      <button onClick={() => setPage("signup")}>Signup</button>
+      <ThemeContext.Provider value={{ theme, setTheme }}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/signup" element={<Signup />} />
+          </Routes>
+        </BrowserRouter>
 
-      {page === "home" && <HomePage name={"Code Village"} />}
-      {page === "signup" && <Signup />}
-    </div>
+        
+          {/* <button onClick={() => setTheme("dark")}>dark</button>
+          <button onClick={() => setTheme("light")}>light</button> */}
+{/* 
+          <button onClick={() => setPage("home")}>Home</button>
+          <button onClick={() => setPage("signup")}>Signup</button>
 
-      <UseEffectScenario />
-      <UseMemo />
+          {page === "home" && <HomePage name={"Code Village"} />}
+          {page === "signup" && <Signup />} */}
+        
+
+        {/* <UseEffectScenario />
+      <UseMemo /> */}
+      </ThemeContext.Provider>
     </>
   );
 };
