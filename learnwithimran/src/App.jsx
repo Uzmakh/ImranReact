@@ -6,6 +6,8 @@ import UseMemo from "./components/useMemo";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import { ThemeContext } from "./context";
+import Product from "./pages/Product";
+import Products from "./pages/Products/indx";
 
 const App = () => {
   // const [page, setPage] = useState();
@@ -18,6 +20,8 @@ const App = () => {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/signup" element={<Signup />} />
+            <Route path="/products" element={<Products/> } />
+            <Route path="/products/:id/:variant" element={<Product/> } />
           </Routes>
         </BrowserRouter>
 

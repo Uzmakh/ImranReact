@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import './index.css'
+import "./index.css";
 
 const Navbar = ({ theme }) => {
   return (
@@ -17,6 +17,18 @@ const Navbar = ({ theme }) => {
           style={{ color: theme.theme === "light" ? "black" : "white" }}
         >
           Home
+        </Link>
+        <Link
+          to="/products"
+          style={{ color: theme.theme === "light" ? "black" : "white" }}
+        >
+          Products
+        </Link>
+        <Link
+          to="/products/123/large-size"
+          style={{ color: theme.theme === "light" ? "black" : "white" }}
+        >
+          Product
         </Link>
         <Link
           to="/signup"
