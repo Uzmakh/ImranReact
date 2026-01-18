@@ -1,13 +1,11 @@
 import { useState } from "react";
-import HomePage from "./pages/Home";
-import Signup from "./pages/Signup";
+
 import UseEffectScenario from "./components/UseEffect";
 import UseMemo from "./components/useMemo";
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter } from "react-router-dom";
 
 import { ThemeContext } from "./context";
-import Product from "./pages/Product";
-import Products from "./pages/Products/indx";
+import RoutesConfig from "./routing/Routes";
 
 const App = () => {
   // const [page, setPage] = useState();
@@ -17,24 +15,17 @@ const App = () => {
     <>
       <ThemeContext.Provider value={{ theme, setTheme }}>
         <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/products" element={<Products/> } />
-            <Route path="/products/:id/:variant" element={<Product/> } />
-          </Routes>
+          <RoutesConfig />
         </BrowserRouter>
 
-        
-          {/* <button onClick={() => setTheme("dark")}>dark</button>
+        {/* <button onClick={() => setTheme("dark")}>dark</button>
           <button onClick={() => setTheme("light")}>light</button> */}
-{/* 
+        {/* 
           <button onClick={() => setPage("home")}>Home</button>
           <button onClick={() => setPage("signup")}>Signup</button>
 
           {page === "home" && <HomePage name={"Code Village"} />}
           {page === "signup" && <Signup />} */}
-        
 
         {/* <UseEffectScenario />
       <UseMemo /> */}
