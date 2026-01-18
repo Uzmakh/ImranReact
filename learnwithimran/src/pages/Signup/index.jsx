@@ -1,7 +1,5 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import "./index.css";
-import Navbar from "../../components/Navbar";
-import { ThemeContext } from "../../context";
 
 const Signup = () => {
   const [user, setUser] = useState({
@@ -13,8 +11,6 @@ const Signup = () => {
     success: "",
     loading: false,
   });
-
-  const theme = useContext(ThemeContext);
 
   const handleChange = (e) => {
     console.log(user);
@@ -52,7 +48,6 @@ const Signup = () => {
   };
   return (
     <>
-      <Navbar theme={theme} />
       <div className="signup-container">
         <h2>Signup</h2>
         <input
